@@ -1,5 +1,7 @@
 # yamlfmt
 
+[![Build Status](https://travis-ci.com/wangkuiyi/yamlfmt.svg?branch=master)](https://travis-ci.com/wangkuiyi/yamlfmt)
+
 I tried various beautifier of YAML files, but none of them satisfies me.
 
 - https://pypi.org/project/yamlfmt cannot handle a file with multiple YAML objects separated by `---`.
