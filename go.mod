@@ -1,4 +1,4 @@
-module github.com/miekg/yamlfmt
+module github.com/wangkuiyi/yamlfmt
 
 go 1.13
 
