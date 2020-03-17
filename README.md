@@ -1,16 +1,35 @@
-# YAMLfmt
+# yamlfmt
 
-`yamlfmt` is a little Go binary that reads YAML from file(s) or standard input, formats it and then
-writes it to standard output.
+I tried various beautifier of YAML files, but none of them satisfies me.
 
-## Use in Editors
+- https://pypi.org/project/yamlfmt cannot handle a file with multiple YAML objects separated by `---`.
+- https://github.com/devopyio/yamlfmt cannot handle multiple files.
+- https://github.com/miekg/yamlfmt/blob/master/fmt.go cannot replace (inline edit) the input files.
 
-### Vim
+So, I decided to write this one based on https://github.com/miekg/yamlfmt/blob/master/fmt.go.
 
-Use the following configuration in Vim, to create a "Fmt" command that formats your YAML.
+## Usage
 
-~~~ viml
-au FileType yaml command! Fmt call YamlFmt(120)
-let yaml_fmt = "yamlfmt /dev/stdin"
-au FileType yaml let &l:formatprg=yaml_fmt
-~~~
+- To beautify one or more files and write to stdout:
+
+   ```bash
+   yamlfmt a.yaml b.yaml c.yaml
+   ```
+   
+- To beautify one or more files in the replace mode:
+
+  ```bash
+  yamlfmt -w a.yaml b.yaml c.yaml
+  ```
+  
+- To beautify stdin and write to stdout:
+
+  ```bash
+  cat a.yaml | yamlfmt
+  ```
+  
+- To beautify stdin and write to a file:
+
+  ```bash
+  cat a.yaml | yamlfmt > b.yaml
+  ```
